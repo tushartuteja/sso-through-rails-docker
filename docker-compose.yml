@@ -1,0 +1,26 @@
+version: "3"
+services:
+  sso:
+    build:
+      dockerfile: sso/Dockerfile
+      context: .
+    volumes:
+      - ./sso:/myapp
+    ports:
+      - "3000:3000"
+  webone:
+    build:
+      dockerfile: client1/Dockerfile
+      context: .
+    volumes:
+      - ./client1:/myapp
+    ports:
+      - "3001:3000"
+  webtwo:
+    build:
+      dockerfile: client2/Dockerfile
+      context: .
+    volumes:
+      - ./client2:/myapp
+    ports:
+      - "3002:3000"
