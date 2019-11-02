@@ -16,6 +16,8 @@ services:
       - ./client1:/myapp
     ports:
       - "3001:3000"
+    links:
+      - "sso"
   webtwo:
     build:
       dockerfile: client2/Dockerfile
@@ -24,3 +26,5 @@ services:
       - ./client2:/myapp
     ports:
       - "3002:3000"
+    links:
+      - "sso"
